@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct TabBView: View {
+struct MapView: View {
     var body: some View {
         Text("This is Tab B.")
     }
@@ -15,6 +15,6 @@ struct TabBView: View {
 
 struct TabBView_Previews: PreviewProvider {
     static var previews: some View {
-        TabBView()
+        MapView()
     }
 }

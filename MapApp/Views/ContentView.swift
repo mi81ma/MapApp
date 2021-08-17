@@ -10,14 +10,14 @@ import SwiftUI
 struct ContentView: View {
     var body: some View {
         TabView {
-            TabAView()
+            ListView()
                 .tabItem {
                     VStack {
                         Image(systemName: "list.bullet")
                         Text("List View")
                     }
                 }.tag(1)
-            TabBView()
+            MapView()
                 .tabItem {
                     VStack {
                         Image(systemName: "map")

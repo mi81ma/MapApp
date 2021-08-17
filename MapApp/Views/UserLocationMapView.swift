@@ -1,5 +1,5 @@
 //
-//  TabBview.swift
+//  UserLocationMapView.swift
 //  MapApp
 //
 //  Created by masato on 17/8/2021.
@@ -8,10 +8,10 @@
 import SwiftUI
 import MapKit
 
-struct MapView: View {
-    //    @Binding var userData: UserLocational
-//    @Binding var longitude: Double?
-//    @Binding var latitudeDetail: Double?
+struct UserLocationMapView: View {
+//    @Binding var userData: UserLocational
+    @Binding var longitude: Double?
+    @Binding var latitudeDetail: Double?
 
     @State var region = MKCoordinateRegion(
         center: CLLocationCoordinate2D(latitude: 40.75773, longitude: -73.985708),
@@ -36,8 +36,3 @@ struct MapView: View {
     }
 }
 
-//struct TabBView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        MapView()
-//    }
-//}

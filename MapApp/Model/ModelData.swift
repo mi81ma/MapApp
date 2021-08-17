@@ -32,10 +32,3 @@ func load<T: Decodable>(_ filename: String) -> T {
     }
 }
 
-
-//func jsonDecode(jsonData: String) -> [UserLocation]? {
-//    let jsonData_str = jsonData.data(using: .utf8)!
-//    let decoder = JSONDecoder()
-//    let catInfo = try! decoder.decode([UserLocation].self, from: jsonData_str)
-//    return catInfo
-//}

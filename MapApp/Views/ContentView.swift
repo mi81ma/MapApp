@@ -8,7 +8,9 @@
 import SwiftUI
 
 struct ContentView: View {
+    
     var body: some View {
+        NavigationView {
         TabView {
             ListView()
                 .tabItem {
@@ -24,6 +26,8 @@ struct ContentView: View {
                         Text("Map View")
                     }
                 }.tag(2)
+        }
+            
         }
     }
 }

@@ -8,28 +8,30 @@
 import SwiftUI
 
 struct ListView: View {
+    @EnvironmentObject var network: Network
+
     
-
+    @State var observedUserlocationDetails = userLocations
     var body: some View {
-        NavigationView {
-            List (userLocations, id: \.id){ userLocation in
-                NavigationLink(
-                    destination: UserLocationDetail(),
-                    label: {
-                        CellView(userLocation: userLocation)
+//            List (Array(userLocations.enumerated()), id: \.element){ index, userLocation in
+//                NavigationLink(
+//                    destination: UserLocationDetail(userData: self.$observedUserlocationDetails[index]),
+//                    label: {
+//                        CellView(userLocation: userLocation)
+//
+//                    })
+//            }
+//            .navigationBarHidden(true)
 
-                    })
+        List (Array(userLocations.enumerated()), id: \.element){ index, userLocation in
+            NavigationLink(
+                destination: UserLocationDetail(userData: self.$observedUserlocationDetails[index]),
+                label: {
+                    CellView(userLocation: userLocation)
 
-            }
-            .navigationBarHidden(true)
-
+                })
         }
-
+        .navigationBarHidden(true)
     }
 }
 
-struct TabAview_Previews: PreviewProvider {
-    static var previews: some View {
-        ListView()
-    }
-}

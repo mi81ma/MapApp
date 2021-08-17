@@ -9,12 +9,12 @@ import Foundation
 import SwiftUI
 import CoreLocation
 
-struct UserLocation: Codable {
+struct UserLocation: Codable, Hashable {
     let id: String
     let name: Name
     let email: String
     let picture: String
-    let location: Location
+    var location: Location
 
     enum CodingKeys: String, CodingKey {
         case id = "_id"
@@ -23,12 +23,12 @@ struct UserLocation: Codable {
 
 
     // MARK: - Location
-    struct Location: Codable {
-        let latitude, longitude: Double?
+    struct Location: Codable, Hashable {
+        var latitude, longitude: Double?
     }
 
     // MARK: - Name
-    struct Name: Codable {
+    struct Name: Codable, Hashable {
         let last, first: String
     }
 }

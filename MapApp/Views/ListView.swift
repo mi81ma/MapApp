@@ -15,12 +15,16 @@ struct ListView: View {
 
         List (Array(network.userLocations.enumerated()), id: \.element){ index, userLocation in
             NavigationLink(
-                destination: UserLocationDetail(userData: self.$observedUserlocationDetails[index]),
+                destination: UserLocationDetail(userData: self.$network.userLocations[index]),
                 label: {
                     CellView(userLocation: userLocation)
                 })
         }
         .navigationBarHidden(true)
+        .onAppear {
+            network.getUsers()
+
+        }
     }
 }
 

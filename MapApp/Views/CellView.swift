@@ -26,9 +26,15 @@ struct CellView: View {
                             RoundedRectangle(cornerRadius: 75).stroke(Color.black, lineWidth: 1)
                     )
                 }
+                if userLocation.id == "NoData"{
+                    Image(systemName: "wifi.exclamationmark")
+                    Text("Internet connection is poor...")
 
-                Text(userLocation.name.first)
-                Text(userLocation.name.last)
+                }else{
+                    Text(userLocation.name.first)
+                    Text(userLocation.name.last)
+                }
+
 
                 Spacer()
             }

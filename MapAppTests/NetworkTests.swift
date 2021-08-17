@@ -16,26 +16,25 @@ class NetworkTests: XCTestCase {
         network = Network()
     }
 
-    func delay(testCase: XCTestCase, seconds: Float) {
-        let delay = testCase.expectation(description: "Wait fetch json data from network")
-        DispatchQueue.main.asyncAfter(deadline: .now() + TimeInterval(seconds)) {
-            delay.fulfill()
-        }
-        testCase.waitForExpectations(timeout: TimeInterval(seconds + 1.0))
-    }
 
-    func test_FetchJson() throws {
+    func test_FetchJson() {
         DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
             // After 2 seconds, the fetched json data is compared with preset json data
             let testJsonData = self.network.userLocations
             XCTAssertEqual(testJsonData, userLocations)
-
         }
-
-        
-
     }
-  
+
+
+    func test_getAllUserLocations() {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
+            self.network.getAllUserLocations()
+            let testCase = self.network.pointsOfInterest[0]
+
+            let expected = AnnotatedItem(name: "Camacho Wagner", coordinate: .init(latitude: 22.3417661, longitude: 114.0))
+            XCTAssertEqual(testCase.name, expected.name)
+        }
+    }
 
 
     override func tearDown() {

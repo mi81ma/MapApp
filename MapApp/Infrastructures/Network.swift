@@ -8,9 +8,9 @@
 import Foundation
 
 class Network: ObservableObject {
-    @Published var userLocations: [UserLocation] = [UserLocation(id: "", name: UserLocation.Name(last: "", first: ""), email: "", picture: "", location: UserLocation.Location())]
+    @Published var userLocations: [UserLocation] = [UserLocation(id: "NoData", name: UserLocation.Name(last: "", first: ""), email: "", picture: "", location: UserLocation.Location())]
 
-    @Published var pointsOfInterest: [AnnotatedItem] = [AnnotatedItem(name: "Times Square", coordinate: .init(latitude: 22.3193039, longitude: 114.0))]
+    @Published var pointsOfInterest: [AnnotatedItem] = [AnnotatedItem(name: "NoData", coordinate: .init(latitude: 22.3193039, longitude: 114.0))]
 
 
     init() {

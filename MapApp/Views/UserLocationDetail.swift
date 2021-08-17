@@ -60,26 +60,28 @@ struct UserLocationDetail: View {
         .padding(0.2)
         .navigationBarTitleDisplayMode(.inline)
         .onAppear {
-            let url = userData.picture
-            downloadImageAsync(url: URL(string: url)!) { image in
-                self.image = image
-            }
+            if userData.id != "NoData" {
+                let url = userData.picture
+                downloadImageAsync(url: URL(string: url)!) { image in
+                    self.image = image
+                }
 
-            if userData.location.latitude == nil || userData.location.longitude == nil {
-                self.isLocation = false
-                self.region = MKCoordinateRegion(
-                    center: CLLocationCoordinate2D(latitude: 22.3193039, longitude: 114.0),
-                    span: MKCoordinateSpan(latitudeDelta: 2.0, longitudeDelta: 2.0))
+                if userData.location.latitude == nil || userData.location.longitude == nil {
+                    self.isLocation = false
+                    self.region = MKCoordinateRegion(
+                        center: CLLocationCoordinate2D(latitude: 22.3193039, longitude: 114.0),
+                        span: MKCoordinateSpan(latitudeDelta: 2.0, longitudeDelta: 2.0))
 
-            } else {
-                self.isLocation = true
-                self.region = MKCoordinateRegion(
-                    center: CLLocationCoordinate2D(latitude: userData.location.latitude!, longitude: userData.location.longitude!),
-                    span: MKCoordinateSpan(latitudeDelta: 2.0, longitudeDelta: 2.0))
+                } else {
+                    self.isLocation = true
+                    self.region = MKCoordinateRegion(
+                        center: CLLocationCoordinate2D(latitude: userData.location.latitude!, longitude:    userData.location.longitude!),
+                        span: MKCoordinateSpan(latitudeDelta: 2.0, longitudeDelta: 2.0))
 
-                self.pointsOfInterest = [
-                    AnnotatedItem(name: userData.name.first + userData.name.last, coordinate: .init(latitude: userData.location.latitude!, longitude: userData.location.longitude!)),
-                ]
+                    self.pointsOfInterest = [
+                        AnnotatedItem(name: userData.name.first + userData.name.last, coordinate: .init(latitude:   userData.location.latitude!, longitude: userData.location.longitude!)),
+                    ]
+                }
             }
         }
     }

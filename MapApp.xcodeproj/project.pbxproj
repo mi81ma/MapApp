@@ -13,7 +13,6 @@
 		69CBA78026CACA95003E801A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 69CBA77F26CACA95003E801A /* Assets.xcassets */; };
 		69CBA78326CACA95003E801A /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 69CBA78226CACA95003E801A /* Preview Assets.xcassets */; };
 		69CBA78626CACA95003E801A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 69CBA78426CACA95003E801A /* LaunchScreen.storyboard */; };
-		69CBA79126CACA95003E801A /* MapAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69CBA79026CACA95003E801A /* MapAppTests.swift */; };
 		69CBA79C26CACA95003E801A /* MapAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69CBA79B26CACA95003E801A /* MapAppUITests.swift */; };
 		69CBA7AD26CACB42003E801A /* ListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69CBA7AC26CACB42003E801A /* ListView.swift */; };
 		69CBA7B226CACB50003E801A /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69CBA7B126CACB50003E801A /* MapView.swift */; };
@@ -58,7 +57,6 @@
 		69CBA78526CACA95003E801A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		69CBA78726CACA95003E801A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		69CBA78C26CACA95003E801A /* MapAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MapAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		69CBA79026CACA95003E801A /* MapAppTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapAppTests.swift; sourceTree = "<group>"; };
 		69CBA79226CACA95003E801A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		69CBA79726CACA95003E801A /* MapAppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MapAppUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		69CBA79B26CACA95003E801A /* MapAppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapAppUITests.swift; sourceTree = "<group>"; };
@@ -152,7 +150,6 @@
 		69CBA78F26CACA95003E801A /* MapAppTests */ = {
 			isa = PBXGroup;
 			children = (
-				69CBA79026CACA95003E801A /* MapAppTests.swift */,
 				69CBA7F926CB5A2B003E801A /* JsonDecoderTests.swift */,
 				69CBA81826CB8CB9003E801A /* NetworkTests.swift */,
 				69CBA79226CACA95003E801A /* Info.plist */,
@@ -364,7 +361,6 @@
 			files = (
 				69CBA81926CB8CBA003E801A /* NetworkTests.swift in Sources */,
 				69CBA7FA26CB5A2B003E801A /* JsonDecoderTests.swift in Sources */,
-				69CBA79126CACA95003E801A /* MapAppTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

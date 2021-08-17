@@ -18,7 +18,7 @@ struct MapView: View {
 
     var body: some View {
 
-
+        ZStack {
         Map(
             coordinateRegion: $region,
             annotationItems: network.pointsOfInterest,
@@ -29,8 +29,11 @@ struct MapView: View {
                             .font(.callout)
                             .background(Color.white)
                             .foregroundColor(Color.black)
-                            .padding(1.0)
-                            .border(Color.black, width: 1)
+                            .padding(2.0)
+                            .border(LinearGradient(gradient: Gradient(colors: [.green, .blue]),
+                                                   startPoint: .topLeading,
+                                                   endPoint: .bottomTrailing),
+                                    width: 1)
                             .cornerRadius(2.0)
 
                         Image(systemName: "mappin")
@@ -42,6 +45,20 @@ struct MapView: View {
             .onAppear {
                 network.getAllUserLocations()
             }
+
+            if network.userLocations[0].id == "NoData" {
+                Text("No Location Data")
+                    .font(.title)
+                    .padding(10.0)
+                    .background(Color.white)
+                    .foregroundColor(Color.black)
+                    .cornerRadius(5.0)
+                    .border(LinearGradient(gradient: Gradient(colors: [.green, .blue]),
+                                           startPoint: .topLeading,
+                                           endPoint: .bottomTrailing),
+                            width: 2)
+            }
+        }
         
 
         

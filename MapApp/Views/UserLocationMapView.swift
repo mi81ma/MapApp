@@ -17,25 +17,12 @@ struct UserLocationMapView: View {
 
     var body: some View {
         if isLocation == true {
-//            Map(coordinateRegion: $region, annotationItems: pointsOfInterest) { item in
-//                MapMarker(coordinate: item.coordinate, tint: .red)
-//            }
-//            .edgesIgnoringSafeArea(.all)
-
             Map(
                 coordinateRegion: $region,
                 annotationItems: pointsOfInterest,
                 annotationContent: { (annotation) in
                 MapAnnotation(coordinate: annotation.coordinate) {
                     VStack {
-                        Text(annotation.name)
-                            .font(.callout)
-                            .background(Color.white)
-                            .foregroundColor(Color.black)
-                            .padding(1.0)
-                            .border(Color.black, width: 1)
-                            .cornerRadius(2.0)
-
                         Image(systemName: "mappin")
                             .foregroundColor( .red)
                     }
@@ -49,9 +36,13 @@ struct UserLocationMapView: View {
                 Text("No Location Data")
                     .font(.title)
                     .padding(10.0)
-                    .background(Color.orange)
-                    .foregroundColor(Color.white)
-                    .cornerRadius(18.0)
+                    .background(Color.white)
+                    .foregroundColor(Color.black)
+                    .cornerRadius(5.0)
+                    .border(LinearGradient(gradient: Gradient(colors: [.green, .blue]),
+                                           startPoint: .topLeading,
+                                           endPoint: .bottomTrailing),
+                            width: 2)
                     
 
             }

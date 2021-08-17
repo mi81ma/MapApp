@@ -18,19 +18,34 @@ struct MapView: View {
 
     var body: some View {
 
-        Map(coordinateRegion: $region, annotationItems: network.pointsOfInterest) { item in
-            MapMarker(coordinate: item.coordinate, tint: .red)
-        }
-        .edgesIgnoringSafeArea(.all)
-        .onAppear {
-            network.getAllUserLocations()
-        }
+
+        Map(
+            coordinateRegion: $region,
+            annotationItems: network.pointsOfInterest,
+            annotationContent: { (annotation) in
+                MapAnnotation(coordinate: annotation.coordinate) {
+                    VStack {
+                        Text(annotation.name)
+                            .font(.callout)
+                            .background(Color.white)
+                            .foregroundColor(Color.black)
+                            .padding(1.0)
+                            .border(Color.black, width: 1)
+                            .cornerRadius(2.0)
+
+                        Image(systemName: "mappin")
+                            .foregroundColor( .red)
+                    }
+                }
+            })
+            .edgesIgnoringSafeArea(.all)
+            .onAppear {
+                network.getAllUserLocations()
+            }
+        
+
+        
 
     }
 }
 
-//struct TabBView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        MapView()
-//    }
-//}

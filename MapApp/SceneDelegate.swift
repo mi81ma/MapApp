@@ -15,7 +15,12 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
 
+        let network = Network()
+
         let contentView = ContentView()
+            .environmentObject(network)
+
+
 
 
         if let windowScene = scene as? UIWindowScene {

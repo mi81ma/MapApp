@@ -27,7 +27,6 @@
 		69CBA80F26CB85B5003E801A /* AnnotatedItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69CBA80E26CB85B5003E801A /* AnnotatedItem.swift */; };
 		69CBA81426CB8BD3003E801A /* Network.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69CBA81326CB8BD3003E801A /* Network.swift */; };
 		69CBA81926CB8CBA003E801A /* NetworkTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69CBA81826CB8CB9003E801A /* NetworkTests.swift */; };
-		69CBA82126CBB089003E801A /* TestMapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69CBA82026CBB089003E801A /* TestMapView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -74,7 +73,6 @@
 		69CBA80E26CB85B5003E801A /* AnnotatedItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnnotatedItem.swift; sourceTree = "<group>"; };
 		69CBA81326CB8BD3003E801A /* Network.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Network.swift; sourceTree = "<group>"; };
 		69CBA81826CB8CB9003E801A /* NetworkTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkTests.swift; sourceTree = "<group>"; };
-		69CBA82026CBB089003E801A /* TestMapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestMapView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -175,7 +173,6 @@
 				69CBA7B126CACB50003E801A /* MapView.swift */,
 				69CBA80126CB6A08003E801A /* UserLocationDetail.swift */,
 				69CBA80926CB7335003E801A /* UserLocationMapView.swift */,
-				69CBA82026CBB089003E801A /* TestMapView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -345,7 +342,6 @@
 				69CBA77A26CACA93003E801A /* AppDelegate.swift in Sources */,
 				69CBA7C426CB3B28003E801A /* CellView.swift in Sources */,
 				69CBA77C26CACA93003E801A /* SceneDelegate.swift in Sources */,
-				69CBA82126CBB089003E801A /* TestMapView.swift in Sources */,
 				69CBA7B226CACB50003E801A /* MapView.swift in Sources */,
 				69CBA80F26CB85B5003E801A /* AnnotatedItem.swift in Sources */,
 				69CBA7DB26CB403C003E801A /* ModelData.swift in Sources */,

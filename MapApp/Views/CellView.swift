@@ -36,10 +36,10 @@ struct CellView: View {
             .border(LinearGradient(gradient: Gradient(colors: [.green, .blue]),
                                    startPoint: .topLeading,
                                    endPoint: .bottomTrailing),
-                    width: 3)
+                    width: 2)
 
         }
-        .padding()
+        .padding(0.2)
         .onAppear {
             let url = userLocation.picture
             downloadImageAsync(url: URL(string: url)!) { image in

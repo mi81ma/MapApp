@@ -8,8 +8,23 @@
 import SwiftUI
 
 struct ListView: View {
+    
+
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        NavigationView {
+            List (userLocations, id: \.id){ userLocation in
+                NavigationLink(
+                    destination: UserLocationDetail(),
+                    label: {
+                        CellView(userLocation: userLocation)
+
+                    })
+
+            }
+            .navigationBarHidden(true)
+
+        }
+
     }
 }
 

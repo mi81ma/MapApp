@@ -23,6 +23,7 @@
 		69CBA7DB26CB403C003E801A /* ModelData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69CBA7DA26CB403C003E801A /* ModelData.swift */; };
 		69CBA7EA26CB49DD003E801A /* InfrastructureFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69CBA7E926CB49DD003E801A /* InfrastructureFunctions.swift */; };
 		69CBA7FA26CB5A2B003E801A /* JsonDecoderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69CBA7F926CB5A2B003E801A /* JsonDecoderTests.swift */; };
+		69CBA80226CB6A08003E801A /* UserLocationDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69CBA80126CB6A08003E801A /* UserLocationDetail.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -65,6 +66,7 @@
 		69CBA7DA26CB403C003E801A /* ModelData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelData.swift; sourceTree = "<group>"; };
 		69CBA7E926CB49DD003E801A /* InfrastructureFunctions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfrastructureFunctions.swift; sourceTree = "<group>"; };
 		69CBA7F926CB5A2B003E801A /* JsonDecoderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JsonDecoderTests.swift; sourceTree = "<group>"; };
+		69CBA80126CB6A08003E801A /* UserLocationDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserLocationDetail.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -163,6 +165,7 @@
 				69CBA7C326CB3B28003E801A /* CellView.swift */,
 				69CBA7AC26CACB42003E801A /* ListView.swift */,
 				69CBA7B126CACB50003E801A /* MapView.swift */,
+				69CBA80126CB6A08003E801A /* UserLocationDetail.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -325,6 +328,7 @@
 			files = (
 				69CBA7EA26CB49DD003E801A /* InfrastructureFunctions.swift in Sources */,
 				69CBA7AD26CACB42003E801A /* ListView.swift in Sources */,
+				69CBA80226CB6A08003E801A /* UserLocationDetail.swift in Sources */,
 				69CBA77A26CACA93003E801A /* AppDelegate.swift in Sources */,
 				69CBA7C426CB3B28003E801A /* CellView.swift in Sources */,
 				69CBA77C26CACA93003E801A /* SceneDelegate.swift in Sources */,

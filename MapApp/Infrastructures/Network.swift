@@ -10,6 +10,9 @@ import Foundation
 class Network: ObservableObject {
     @Published var userLocations: [UserLocation] = [UserLocation(id: "", name: UserLocation.Name(last: "", first: ""), email: "", picture: "", location: UserLocation.Location())]
 
+    @Published var pointsOfInterest: [AnnotatedItem] = [AnnotatedItem(name: "Times Square", coordinate: .init(latitude: 22.3193039, longitude: 114.0))]
+
+
     init() {
         getUsers()
     }
@@ -17,7 +20,7 @@ class Network: ObservableObject {
 
 
     func getUsers() {
-        guard let url = URL(string: "https://api.json-generator.com/templates/Xp8zvwDP14dJ/data?access_token=v3srs6i1veetv3b2dolta9shrmttl72vnfzm220z") else { fatalError("Missing URL") }
+        guard let url = URL(string: endpointURL) else { fatalError("Missing URL") }
 
         let urlRequest = URLRequest(url: url)
 
@@ -44,6 +47,20 @@ class Network: ObservableObject {
         }
 
         dataTask.resume()
+    }
+
+
+    func getAllUserLocations() {
+        var tempList:[AnnotatedItem] = []
+        for oneUserData in self.userLocations {
+            if oneUserData.location.latitude == nil || oneUserData.location.longitude == nil {
+                continue
+            }
+
+            let oneAnnotatedItem = AnnotatedItem(name: oneUserData.name.first + " " + oneUserData.name.last, coordinate: .init(latitude: oneUserData.location.latitude!, longitude: oneUserData.location.longitude!))
+            tempList.append(oneAnnotatedItem)
+        }
+        self.pointsOfInterest = tempList
     }
 }
 

@@ -7,6 +7,8 @@
 
 import Foundation
 
+let endpointURL = "https://api.json-generator.com/templates/Xp8zvwDP14dJ/data?access_token=v3srs6i1veetv3b2dolta9shrmttl72vnfzm220z"
+
 var userLocations: [UserLocation] = load("SampleData.json")
 
 

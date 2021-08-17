@@ -10,28 +10,34 @@ import MapKit
 
 struct UserLocationMapView: View {
 //    @Binding var userData: UserLocational
-    @Binding var longitude: Double?
-    @Binding var latitudeDetail: Double?
-
-    @State var region = MKCoordinateRegion(
-        center: CLLocationCoordinate2D(latitude: 40.75773, longitude: -73.985708),
-        span: MKCoordinateSpan(latitudeDelta: 0.05, longitudeDelta: 0.05))
-
-
-    var pointsOfInterest = [
-        AnnotatedItem(name: "Times Square", coordinate: .init(latitude: 40.75773, longitude: -73.985708)),
-        AnnotatedItem(name: "Flatiron Building", coordinate: .init(latitude: 40.741112, longitude: -73.989723)),
-        AnnotatedItem(name: "Empire State Building", coordinate: .init(latitude: 40.748817, longitude: -73.985428))
-    ]
-
+    @Binding var region: MKCoordinateRegion
+    @Binding var isLocation: Bool
+    @Binding var pointsOfInterest: [AnnotatedItem]
 
 
     var body: some View {
+        if isLocation == true {
+            Map(coordinateRegion: $region, annotationItems: pointsOfInterest) { item in
+                MapMarker(coordinate: item.coordinate, tint: .red)
+            }
+            .edgesIgnoringSafeArea(.all)
+        } else {
 
-        Map(coordinateRegion: $region, annotationItems: pointsOfInterest) { item in
-            MapMarker(coordinate: item.coordinate, tint: .red)
+            ZStack{
+                Map(coordinateRegion: $region)
+                Text("No Location Data")
+                    .font(.title)
+                    .padding(10.0)
+                    .background(Color.orange)
+                    .foregroundColor(Color.white)
+                    .cornerRadius(18.0)
+                    
+
+            }
+            .edgesIgnoringSafeArea(.all)
         }
-        .edgesIgnoringSafeArea(.all)
+
+
 
     }
 }

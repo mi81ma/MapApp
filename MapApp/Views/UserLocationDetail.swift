@@ -6,14 +6,24 @@
 //
 
 import SwiftUI
+import MapKit
 
 struct UserLocationDetail: View {
     @Binding var userData: UserLocation
     @State var image: UIImage?
 
+    @State var region = MKCoordinateRegion(
+        center: CLLocationCoordinate2D(latitude: 22.3193039, longitude: 114.0),
+        span: MKCoordinateSpan(latitudeDelta: 2.0, longitudeDelta: 2.0))
+
+    @State var pointsOfInterest = [
+        AnnotatedItem(name: "Times Square", coordinate: .init(latitude: 22.3193039, longitude: 114.0)),
+    ]
+    @State var isLocation = false
+
     var body: some View {
         VStack {
-            UserLocationMapView(longitude: $userData.location.longitude, latitudeDetail: $userData.location.latitude)
+            UserLocationMapView(region: $region, isLocation: $isLocation, pointsOfInterest: $pointsOfInterest)
             HStack {
 
                 if let image = image {
@@ -39,8 +49,6 @@ struct UserLocationDetail: View {
                     }
 
                 }
-
-
                 Spacer()
             }
             .padding()
@@ -48,7 +56,6 @@ struct UserLocationDetail: View {
                                    startPoint: .topLeading,
                                    endPoint: .bottomTrailing),
                     width: 2)
-
         }
         .padding(0.2)
         .navigationBarTitleDisplayMode(.inline)
@@ -56,6 +63,23 @@ struct UserLocationDetail: View {
             let url = userData.picture
             downloadImageAsync(url: URL(string: url)!) { image in
                 self.image = image
+            }
+
+            if userData.location.latitude == nil || userData.location.longitude == nil {
+                self.isLocation = false
+                self.region = MKCoordinateRegion(
+                    center: CLLocationCoordinate2D(latitude: 22.3193039, longitude: 114.0),
+                    span: MKCoordinateSpan(latitudeDelta: 2.0, longitudeDelta: 2.0))
+
+            } else {
+                self.isLocation = true
+                self.region = MKCoordinateRegion(
+                    center: CLLocationCoordinate2D(latitude: userData.location.latitude!, longitude: userData.location.longitude!),
+                    span: MKCoordinateSpan(latitudeDelta: 2.0, longitudeDelta: 2.0))
+
+                self.pointsOfInterest = [
+                    AnnotatedItem(name: userData.name.first + userData.name.last, coordinate: .init(latitude: userData.location.latitude!, longitude: userData.location.longitude!)),
+                ]
             }
         }
     }

@@ -36,13 +36,14 @@ struct CellView: View {
             .border(LinearGradient(gradient: Gradient(colors: [.green, .blue]),
                                    startPoint: .topLeading,
                                    endPoint: .bottomTrailing),
-                    width: 2)
+                    width: 1)
 
         }
         .padding(0.2)
         .onAppear {
             let url = userLocation.picture
-            downloadImageAsync(url: URL(string: url)!) { image in
+            let _url = url == "" ? "https://commons.wikimedia.org/wiki/Main_Page#/media/File:1665_Girl_with_a_Pearl_Earring.jpg": url
+            downloadImageAsync(url: URL(string: _url)!) { image in
                 self.image = image
             }
         }

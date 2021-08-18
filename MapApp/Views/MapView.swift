@@ -15,6 +15,8 @@ struct MapView: View {
         center: CLLocationCoordinate2D(latitude: 22.3193039, longitude: 114.0),
         span: MKCoordinateSpan(latitudeDelta: 2.0, longitudeDelta: 2.0))
 
+    @State var pin:Bool = false
+
 
     var body: some View {
 
@@ -25,6 +27,7 @@ struct MapView: View {
             annotationContent: { (annotation) in
                 MapAnnotation(coordinate: annotation.coordinate) {
                     VStack {
+                        if annotation.selected {
                         Text(annotation.name)
                             .font(.callout)
                             .background(Color.white)
@@ -35,9 +38,15 @@ struct MapView: View {
                                                    endPoint: .bottomTrailing),
                                     width: 1)
                             .cornerRadius(2.0)
+                        }
 
                         Image(systemName: "mappin")
                             .foregroundColor( .red)
+                            .onTapGesture {
+                                if let idx = network.pointsOfInterest.firstIndex(where: { $0.id == annotation.id }) {
+                                    network.pointsOfInterest[idx].selected.toggle()
+                                }
+                            }
                     }
                 }
             })

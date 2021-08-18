@@ -21,9 +21,12 @@ struct UserLocationDetail: View {
     ]
     @State var isLocation = false
 
+    @State var isShowName = false
+
+
     var body: some View {
         VStack {
-            UserLocationMapView(region: $region, isLocation: $isLocation, pointsOfInterest: $pointsOfInterest)
+            UserLocationMapView(region: $region, isLocation: $isLocation, pointsOfInterest: $pointsOfInterest, isShowName: $isShowName)
             HStack {
 
                 if let image = image {

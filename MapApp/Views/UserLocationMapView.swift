@@ -13,6 +13,7 @@ struct UserLocationMapView: View {
     @Binding var region: MKCoordinateRegion
     @Binding var isLocation: Bool
     @Binding var pointsOfInterest: [AnnotatedItem]
+    @Binding var isShowName: Bool
 
 
     var body: some View {
@@ -23,8 +24,23 @@ struct UserLocationMapView: View {
                 annotationContent: { (annotation) in
                 MapAnnotation(coordinate: annotation.coordinate) {
                     VStack {
+                        if isShowName {
+                            Text(annotation.name)
+                                .font(.callout)
+                                .background(Color.white)
+                                .foregroundColor(Color.black)
+                                .padding(2.0)
+                                .border(LinearGradient(gradient: Gradient(colors: [.green, .blue]),
+                                                       startPoint: .topLeading,
+                                                       endPoint: .bottomTrailing),
+                                        width: 1)
+                                .cornerRadius(2.0)
+                        }
                         Image(systemName: "mappin")
                             .foregroundColor( .red)
+                            .onTapGesture {
+                                isShowName.toggle()
+                            }
                     }
                 }
             })
